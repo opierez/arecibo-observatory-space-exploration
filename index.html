@@ -4,42 +4,24 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="index.css" />
     <script defer type="text/javascript" src="src/index.js"></script>
-    <title>Hello</title>
+    <title>Arecibo</title>
 </head>
 <body>
-    <p>Hello World</p>
-    <form id="travel-form">
-        <h3>Add a travel destination!</h3>
-
-        <br>
-        <input
-          type="text"
-          name="travel_destination"
-          value=""
-          placeholder="Enter a travel destination city..."
-          class="input-text"
-        />
-        <br />
-        
-        <br>
-        <input
-          type="text"
-          name="travel_dates"
-          value=""
-          placeholder="Enter your travel dates"
-          class="input-text"
-        />
+    <h1>Welcome to Arecibo Observatory!</h1>
+    <form id="search-form">
+        <h3>Search for a space image</h3>
+        <input type="text" name="search_value" value="" placeholder="Example: Pluto"
+        class="input-text"/>
         <br />
 
         <br>
-        <input
-          type="submit"
-          name="submit"
-          value="Create trip"
-          class="submit"
-        /> 
+        <input type="submit" name="submit" value="Search" class="submit"/> 
         <br/>
-
     </form>
+
+    <div id="featured_image">
+      <img id="main_image" src="" width="500" height="600">
+    </div>
+
 </body>
 </html>
