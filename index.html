@@ -2,15 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="styles.css" />
     <script defer type="text/javascript" src="src/index.js"></script>
     <title>Arecibo</title>
 </head>
 <body>
     <h1>Welcome to Arecibo Observatory!</h1>
+
+    <nav id="planet-list">
+      <img id="mercury" src="images/mercury.jpg" alt="mercury image" class="planet-list-image">
+      <img id="venus" src="images/venus.jpg" alt="venus image" class="planet-list-image">
+      <img id="earth" src="images/earth.jpg" alt="earth image" class="planet-list-image">
+      <img id="mars" src="images/mars.jpg" alt="mars image" class="planet-list-image">
+      <img id="jupiter" src="images/jupiter.jpg" alt="jupiter image" class="planet-list-image">
+      <img id="saturn" src="images/saturn.jpg" alt="saturn image" class="planet-list-image">
+      <img id="uranus" src="images/uranus.jpg" alt="uranus image" class="planet-list-image">
+      <img id="pluto" src="images/pluto.jpg" alt="pluto image" class="planet-list-image">    
+    </nav>
+
     <form id="search-form">
         <h3>Search for a space image</h3>
-        <input type="text" name="search_value" value="" placeholder="Example: Pluto"
+        <input type="text" name="search_value" value="" placeholder="Example: Jupiter"
         class="input-text"/>
         <br />
 
@@ -20,7 +32,20 @@
     </form>
 
     <div id="featured_image">
+      <!-- Jandro: Below is where the photo of the day will be inserted -->
       <img id="main_image" src="" width="500" height="600">
+    </div>
+
+    <div id="featured_details">
+
+    </div>
+
+    <div id="grid" class="card">
+        <!-- <img id="grid-image" class="grid_image" src="" alt="" style="width:100%"> -->
+        <div class="container">
+        <!-- header and description go here -->
+        </div>
+      </div>
     </div>
 
 </body>
