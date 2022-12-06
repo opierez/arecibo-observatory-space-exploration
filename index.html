@@ -10,35 +10,54 @@
 </head>
 
 <header class = "row" id = "header-row">
-    <h1>Welcome to the Arecibo Observatory!</h1>
+  <h1>Arecibo Observatory 2.0</h1>
 </header>
+
 <body id = "content-body">
-    <div class = "row">
-        <div class = "column left">
-            <form id="search-form">
-                <h3 id = "search-title">Search for a space image</h3>
-                    <input type="text" name="search_value" value="" placeholder="Example: Pluto" class="input-text"/>
-                <br/>
-                <br>
-                <input type="submit" name="submit" value="Search" class="submit"/> 
-                <br/>
-            </form>
-            <br>
-            <p id="featured-title"></p>
-            <br>
-            <p id="featured-explain"></p>
+  <nav id="planet-list">
+    <img id="mercury" src="images/mercury.jpg" alt="mercury image" class="planet-list-image">
+    <img id="venus" src="images/venus.jpg" alt="venus image" class="planet-list-image">
+    <img id="earth" src="images/earth.jpg" alt="earth image" class="planet-list-image">
+    <img id="mars" src="images/mars.jpg" alt="mars image" class="planet-list-image">
+    <img id="jupiter" src="images/jupiter.jpg" alt="jupiter image" class="planet-list-image">
+    <img id="saturn" src="images/saturn.jpg" alt="saturn image" class="planet-list-image">
+    <img id="uranus" src="images/uranus.jpg" alt="uranus image" class="planet-list-image">
+    <img id="pluto" src="images/pluto.jpg" alt="pluto image" class="planet-list-image">    
+  </nav>
 
-            <br>
-        </div>
+  <div class = "row">
+      <div class = "column left">
+          <form id="search-form">
+              <h3 id = "search-title">Search for a space image</h3>
+                  <input type="text" name="search_value" value="" placeholder="Example: Pluto" class="input-text"/>
+              <br/>
+              <br>
+              <input type="submit" name="submit" value="Search" class="submit"/> 
+              <br/>
+          </form>
 
-        <div class = "column right">
-            
-            <div id="featured_image">
-                <img id="main_image" src="" width="100%" height="120%">
-            </div>
-            
-        </div>
+          <br>
+          <p id="featured-title"></p>
+          <br>
+          <p id="featured-explain"></p>
 
+          <br>
+      </div>
+
+      <div class = "column right">
+          <div id="featured_image">
+              <img id="main_image" src="" width="100%" height="120%">
+          </div>
+      </div>
     </div>
+
+    <div id="grid" class="card">
+      <!-- <img id="grid-image" class="grid_image" src="" alt="" style="width:100%"> -->
+      <div class="container">
+      <!-- header and description go here -->
+      </div>
+    </div>
+
+  </div>   
 </body>
 </html>
