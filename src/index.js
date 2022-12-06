@@ -9,6 +9,7 @@ const grid = document.querySelector('#grid')
 const gridContainer = document.querySelector('.container')
 const gridImages = document.querySelector('grid_image')
 
+
 // Event Listeners
 form.addEventListener('submit', handleSubmit)
 
@@ -47,9 +48,8 @@ function handleSubmit(e) {
         // console.log(data)
         // console.log(data.collection.items)
         let items = data.collection.items
-        getRandomImage(items)
+        getRandomImage(items) // used to be data, not items
         renderGridImages(items)
-
     })
 }
 
