@@ -8,6 +8,7 @@ const planetNav = document.querySelector('#planet-list')
 const grid = document.querySelector('#grid')
 const gridContainer = document.querySelector('.container')
 
+
 // Event Listeners
 form.addEventListener('submit', handleSubmit)
 
@@ -45,9 +46,8 @@ function handleSubmit(e) {
         // console.log(data)
         // console.log(data.collection.items)
         let items = data.collection.items
-        getRandomImage(items)
+        getRandomImage(items) // used to be data, not items
         renderGridImages(items)
-
     })
 }
 
@@ -57,7 +57,8 @@ function getRandomImage(items) {
     let randomItem = (Math.floor(Math.random(items) * 50))
     let chosenItem = items[randomItem]
     console.log(chosenItem) // sometimes shows as "undefined" but causes no errors
-    renderImageDetails(chosenItem)   
+    renderImageDetails(chosenItem)
+
 }
 
 // renders a random image from the fetch in the "featured image" placement
