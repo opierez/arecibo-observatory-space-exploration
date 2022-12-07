@@ -11,9 +11,15 @@ const grid = document.querySelector('#grid')
 const gridContainer = document.querySelector('.container')
 const gridImages = document.querySelector('grid_image')
 const mercuryIcon = document.querySelector('#mercury')
+const pError = document.querySelector('#error-message')
+const imageError = document.querySelector('#error-image')
 
 // Event Listeners
 form.addEventListener('submit', handleSubmit)
+
+function showHide() {
+    grid.style.display = "block"
+}
 
 // fetches planet icon images and details from db.json file 
 fetch('http://localhost:3000/planets')
@@ -34,7 +40,7 @@ function renderImageIcons(planets) {
 
 // when user hovers over planet icon, renders planet details to the "featured image" div
 function renderImageIconDetails(planet) {
-    console.log(planet)
+    // console.log(planet)
     mainTitle.textContent = planet.title
     mainImage.src = planet.image 
     mainExplain.textContent = planet.description 
@@ -73,15 +79,29 @@ function handleSubmit(e) {
 
 
     fetch(`https://images-api.nasa.gov/search?q=${value}&media_type=image`)
-    .then(resp => resp.json())
+    .then(resp => {
+        if (resp.ok) {
+            return resp.json()
+        } else {
+            throw(resp.statusText)
+        }
+    })
     .then(data => {
         // console.log(data)
         // console.log(data.collection.items)
         let items = data.collection.items
         // getRandomImage(items)
+        // console.log(data)
+        showHide()
         renderGridImages(items)
-
+        
     })
+    .catch(err => {
+        // console.log(err)
+        renderError()
+    })
+    
+    form.reset()
 }
 
 // selects a random image from the fetch based on the keyword user inputs in the search
@@ -95,6 +115,8 @@ function handleSubmit(e) {
 
 // renders an image from the fetch or "grid" div in the "featured image" div
 function renderImageDetails(chosenItem) {
+    pError.textContent = ""
+    imageError.src = ""
     let chosenItemTitle = chosenItem.data[0].title
     let chosenItemDescription = chosenItem.data[0].description
 
@@ -137,3 +159,8 @@ function handleClick(item) {
     
 }
 
+// Shows the user an error if they try to search for something that is unvailable or has a typo 
+function renderError() {
+    imageError.src = "./images/gotg.png"
+    pError.textContent = `Please check your spelling or try another search query.`
+}
