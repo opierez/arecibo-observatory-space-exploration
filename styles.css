@@ -108,9 +108,7 @@ div.column.left {
 .card {
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    max-width: 900px;
-    /* display: none;     */
+    max-width: 900px;    
   }
   
   /* On mouse-over, add a deeper shadow */
@@ -127,6 +125,7 @@ div.column.left {
   max-height: 200px;
   padding-top: 50px;
   margin-top: 20px; 
+  /* display: none; */
 }
 
 .grid_image {
@@ -143,3 +142,6 @@ div.column.left {
   margin-top: 20px;
 }
 
+#error-message {
+  color: red;
+}
