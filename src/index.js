@@ -13,12 +13,19 @@ const gridImages = document.querySelector('grid_image')
 const mercuryIcon = document.querySelector('#mercury')
 const pError = document.querySelector('#error-message')
 const imageError = document.querySelector('#error-image')
+const headerText = document.querySelector("#header-row > h1")
 
 // Event Listeners
 form.addEventListener('submit', handleSubmit)
 
 function showHide() {
-    grid.style.display = "block"
+    // if (pError.value = "Please check your spelling or try another search query.") {
+    //     imageError.style.display = "block"
+    //     // grid.style.display = "block"
+    // } else { // sometimes works, sometimes doesn't.
+    //     // imageError.style.display = "block"
+        grid.style.display = "block" 
+    // }
 }
 
 // fetches planet icon images and details from db.json file 
@@ -34,7 +41,7 @@ function renderImageIcons(planets) {
         img.src = planet['image-icon'] 
         img.className = "planet-list-image"
         planetNav.appendChild(img)
-        img.addEventListener('mouseover', () => renderImageIconDetails(planet))
+        img.addEventListener('click', () => renderImageIconDetails(planet))
     })
 }
 
@@ -47,7 +54,6 @@ function renderImageIconDetails(planet) {
     mainSource.href = planet.wiki
     mainSource.textContent = "Taken from this Wikipedia source"
 }
-
 
 // https://api.nasa.gov/ --> scroll down to APOD ('Astronomy Pic Of the Day'), same as HEROKU's. Generates random image of the day
 // fetches astronomy picture of the day 
@@ -148,12 +154,12 @@ function renderGridImages(items) {
 
         grid.appendChild(img)
 
-        img.addEventListener('click', () => handleClick(item))
+        img.addEventListener('mouseover', () => handleHover(item))
     })
 }
 
 // When user clicks on an image in the "grid" div, render that image and it's respective details in the "featured image" div
-function handleClick(item) {
+function handleHover(item) {
     // console.log(item)
     renderImageDetails(item)
     
@@ -161,6 +167,9 @@ function handleClick(item) {
 
 // Shows the user an error if they try to search for something that is unvailable or has a typo 
 function renderError() {
-    imageError.src = "./images/gotg.png"
+    imageError.src = "./images/gotg.gif"
     pError.textContent = `Please check your spelling or try another search query.`
 }
+
+
+// Don't forget to run: `json-server --watch db.json`

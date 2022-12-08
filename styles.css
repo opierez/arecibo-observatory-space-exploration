@@ -4,22 +4,44 @@
 }
 
 @font-face {
+  font-family: moonBold;
+  src: url(./assets/fonts/Moon2.0-Bold.otf);
+}
+
+@font-face {
   font-family: moonFont;
   src: url(./assets/fonts/Moon2.0-Regular.otf);
-  /* src: url(./assets/fonts/Moon2.0-Regular.otf) format('regular'),
-       url(./assets/fonts/Moon2.0-Bold.otf) format('bold'),
-       url('./assets/fonts/Moon2.0-Light.otf) format('light'); */
+  /* src: url(./assets/fonts/Moon2.0-Regular.otf) format('otf'),
+       url(./assets/fonts/Moon2.0-Bold.otf) format('otf'),
+       url(./assets/fonts/Moon2.0-Light.otf) format('otf'); */
+}
+#outer-boundary {
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right:50px;
+  padding-bottom: 100px
+}
+
+header {
+  border-style: solid;
+  box-shadow: 0 0 50px 0 #9ccddc;
+  transition: 0.3s;
+  border-radius: 10px;
+  padding: 10px;
+}
+.boundary {
+  padding-top:50px;
+  padding-bottom:50px
 }
 
 h1 {
-  padding-top: -1.5%;
   padding-bottom: 5%;
   color: #5591a9;
   font-family: rocketWildness;
-  font-size: 80px;
   font-size: 5vw;
   letter-spacing: 4px;
   text-align: center;
+
 }
 
 body {
@@ -31,14 +53,16 @@ div.column.left {
   background-color: black;
   padding-left: 3%;
   padding-right: 1.5%;
-  padding-top: 2%;
+  padding-top: 3%;
   padding-bottom: 60%;
   border-style: solid;
   border-radius: 15px 15px 15px 15px;
-  box-shadow: 0 0 20px 0 #ced7e0;
+  box-shadow: 0 0 20px 0 #9ccddc;
   max-height: 10px;
   font-family: moonFont;
   overflow-y:scroll;
+  transition: all 0.5s ease 0s;
+  font-size: 1vw;
 }
 
 /* #scroll-issues {
@@ -51,6 +75,15 @@ div.column.left {
 
 .column.left p {
   color: white;
+}
+
+#featured-title {
+  font-family: moonBold;
+  font-size: larger
+}
+
+#featured-explain-scroll {
+  padding-right:5px
 }
 
 #search-title {
@@ -67,9 +100,9 @@ div.column.left {
 
 .right {
   display: grid;
+  justify-content: right;
   place-items: center;
   padding-left: 6%;
-  padding-right: 3%;
   padding-top: 2%;
   padding-bottom: 0%;
   width: 60%;
@@ -93,8 +126,9 @@ div.column.left {
     align-items: center;
   }
   h1 {
-    font-size: 45px;
+    font-size: 5vw;
   }
+
 }
 
 .planet-list-image {
@@ -117,7 +151,7 @@ div.column.left {
   }
 
 #grid {
-  box-shadow: 0 0px 40px 0 #ced7e0; 
+  box-shadow: 0 0px 40px 0 #9ccddc; 
   transition: 0.3s;
   border-radius: 10px;
   padding: 30px;
@@ -129,19 +163,97 @@ div.column.left {
 }
 
 .grid_image {
-  border-radius: 10px 10px 0 0;
   padding: 10px;
   max-width: 100px;
   max-height: 100px;
   margin-top: 20px;
 }
 
-#main_image {
-  box-shadow: 0 0 20px 0 #ced7e0;
+.grid_image {
   border-radius: 10px;
-  margin-top: 20px;
+}
+
+#main_image {
+  box-shadow: 0 0 20px 0 #9ccddc;
+  border-radius: 10px;
+  margin-top: -1%;
 }
 
 #error-message {
   color: red;
+  font-family: moonBold;
+  letter-spacing: 1px;
+}
+
+#error-image {
+  image-rendering: optimizeQuality;
+}
+
+.button {
+  background-color: black;
+  background-image: url(./images/star-gif.gif);
+  padding: 12px 28px;
+  display: inline-block;
+  text-decoration: none;
+  font-size:16px;
+  font-family:moonBold;
+  border-radius: 5px;
+  color: #9ccddc;
+  cursor:pointer;
+  transition: transform 3000ms ease;
+}
+
+.button:hover {
+  transform: scale(.75)
+}
+
+.input-text {
+  background-color: black;
+  color:#9ccddc;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 12px 12px;
+  font-size: 16px;
+  
+}
+
+@keyframes slideInFromAbove {
+  0% {
+    transform: translateY(-100%);
+}
+100% {
+    transform: translateY(0);
+}
+}
+
+h1 {  
+  animation-duration: 3s; /* the duration of the animation */
+  animation-timing-function: ease-out; /* how the animation will behave */
+  animation-delay: 0s; /* how long to delay the animation from starting */
+  animation-iteration-count: 1; /* how many times the animation will play */
+  animation-name: slideInFromAbove; /* the name of the animation we defined above */
+  
+  background:none;
+}
+
+#featured-source {
+  color:lightskyblue;
+  font-family: moonBold;
+  letter-spacing: 1px;
+}
+
+.planet-list-image {
+  transition: transform 500ms ease;
+}
+
+.planet-list-image:hover {
+  transform: scale(1.5);
+}
+
+#bottom-boundary {
+  /* position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0; */
+  padding: 50px 50px 50px 50px
 }
