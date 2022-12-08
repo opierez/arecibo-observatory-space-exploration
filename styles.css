@@ -195,12 +195,17 @@ div.column.left {
   padding: 12px 28px;
   display: inline-block;
   text-decoration: none;
-  font-size:16px;
+  text-shadow: 1px 2px black;
+  font-size:20px;
   font-family:moonBold;
   border-radius: 5px;
   color: #9ccddc;
   cursor:pointer;
   transition: transform 3000ms ease;
+}
+
+.button:hover {
+  transform: scale(.75)
 }
 
 #apod-button {
@@ -209,31 +214,36 @@ div.column.left {
   padding: 12px 28px;
   display: inline-block;
   text-decoration: none;
-  text-shadow: 1px 2px black, 1px 2px black, 1px 2px black, 1px 2px black;
-  font-size:16px;
+  text-shadow: 1px 2px black;
+  font-size:20px;
   font-family:moonBold;
   border-radius: 5px;
   color: white;
   cursor:pointer;
   transition: transform 3000ms ease;
+}
+
+#apod-button:hover {
+  transform: scale(.75)
 }
 
 #arecibo-button {
   background-color: black;
-  background-image: url(./assets/images/sun.gif);
+  background-image: url(./assets/images/bio-bay.gif);
   padding: 12px 28px;
   display: inline-block;
   text-decoration: none;
-  text-shadow: 1px 2px black, 1px 2px black, 1px 2px black, 1px 2px black;
-  font-size:16px;
+  text-shadow: 3px 3px 5px black;
+  font-size:20px;
   font-family:moonBold;
   border-radius: 5px;
-  color: white;
+  color: #F4BB44;
   cursor:pointer;
   transition: transform 3000ms ease;
+  letter-spacing: 2px;
 }
 
-.button:hover {
+#arecibo-button:hover {
   transform: scale(.75)
 }
 
