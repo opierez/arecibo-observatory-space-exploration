@@ -1,3 +1,5 @@
+// IMPORTANT REMINDER: Don't forget to run: `json-server --watch db.json`
+
 // Grab DOM Elements
 const form = document.querySelector('#search-form')
 const featuredImageDiv = document.querySelector('#featured_image')
@@ -8,24 +10,29 @@ const mainSource = document.querySelector('#featured-source')
 const planetNav = document.querySelector('#planet-list')
 const planetIcons = document.querySelectorAll('.planet-list-image')
 const grid = document.querySelector('#grid')
-const gridContainer = document.querySelector('.container')
 const gridImages = document.querySelector('grid_image')
-const mercuryIcon = document.querySelector('#mercury')
 const pError = document.querySelector('#error-message')
 const imageError = document.querySelector('#error-image')
-const headerText = document.querySelector("#header-row > h1")
+const apodButton = document.querySelector('#apod-button')
+const areciboButton = document.querySelector('#arecibo-button')
+
+// Global variables
+let currentApod = {}
 
 // Event Listeners
 form.addEventListener('submit', handleSubmit)
+apodButton.addEventListener('click', handleClick)
 
-function showHide() {
-    grid.style.display = "block" 
-}
 
 // fetches planet icon images and details from db.json file 
 fetch('http://localhost:3000/planets')
     .then(resp => resp.json())
     .then(planets => renderImageIcons(planets))
+
+// fetches arecibo obvservatory image and details
+fetch('http://localhost:3000/observatories')
+    .then(resp => resp.json())
+    .then(observatories => renderObservatory(observatories))
 
 // renders planet icons to the nav 
 function renderImageIcons(planets) {
@@ -59,6 +66,7 @@ fetch('https://api.nasa.gov/planetary/apod?api_key=XjBC4L80dCM7UOyBSupD3sYfCDTWc
         // console.log(apod.explanation)
         // console.log(apod.url)
         renderAPOD(apod)
+        currentApod = apod
     })
 
 // renders astronomy picture of the day and corresponding details to the "featured image" div
@@ -92,7 +100,7 @@ function handleSubmit(e) {
         let items = data.collection.items
         // getRandomImage(items)
         // console.log(data)
-        showHide()
+        grid.style.display = "block" // makes grid div reappear
         renderGridImages(items)
         
     })
@@ -104,20 +112,11 @@ function handleSubmit(e) {
     form.reset()
 }
 
-// selects a random image from the fetch based on the keyword user inputs in the search
-// function getRandomImage(items) {
-//     // let items = data.collection.items
-//     let randomItem = (Math.floor(Math.random(items) * 50))
-//     let chosenItem = items[randomItem]
-//     // console.log(chosenItem) // sometimes shows as "undefined" but causes no errors
-//     renderImageDetails(chosenItem)   
-// }
-
 // renders an image from the fetch or "grid" div in the "featured image" div
 function renderImageDetails(chosenItem) {
     pError.textContent = ""
     imageError.src = ""
-    imageError.style = "display:none"
+    imageError.style.display = "none"
     let chosenItemTitle = chosenItem.data[0].title
     let chosenItemDescription = chosenItem.data[0].description
 
@@ -153,6 +152,29 @@ function renderGridImages(items) {
     })
 }
 
+// When user clicks on "apod-button", return to displaying the apod image and details and hide the grid div  
+function handleClick() {
+    grid.style.display = "none" 
+    renderAPOD(currentApod)
+}
+
+// Takes the observatories data from db.json fetch, adds an event listener to the "arecibo-button", and passes observatory data to the handleAreciboClick function
+function renderObservatory(observatories) {
+    areciboButton.addEventListener('click', () => handleAreciboClick(observatories))
+}
+
+// When user clicks on "arecibo-button", render arecibo observatory image and details
+function handleAreciboClick(observatories) {
+    pError.textContent = ""
+    imageError.src = ""
+    imageError.style.display = "none"
+    grid.style.display = "none"
+    mainTitle.textContent = observatories[0].title
+    mainExplain.textContent = observatories[0].description
+    mainImage.src = observatories[0].image
+    mainSource.textContent = observatories[0].wiki
+}
+
 // When user clicks on an image in the "grid" div, render that image and it's respective details in the "featured image" div
 function handleHover(item) {
     // console.log(item)
@@ -183,4 +205,4 @@ function swipe() {
     window.open(url,'Image','width=openImage.stylewidth,height=openImage.style.height,resizable=1');
 }
 
-// Don't forget to run: `json-server --watch db.json`
+
