@@ -19,13 +19,7 @@ const headerText = document.querySelector("#header-row > h1")
 form.addEventListener('submit', handleSubmit)
 
 function showHide() {
-    // if (pError.value = "Please check your spelling or try another search query.") {
-    //     imageError.style.display = "block"
-    //     // grid.style.display = "block"
-    // } else { // sometimes works, sometimes doesn't.
-    //     // imageError.style.display = "block"
-        grid.style.display = "block" 
-    // }
+    grid.style.display = "block" 
 }
 
 // fetches planet icon images and details from db.json file 
@@ -123,6 +117,7 @@ function handleSubmit(e) {
 function renderImageDetails(chosenItem) {
     pError.textContent = ""
     imageError.src = ""
+    imageError.style = "display:none"
     let chosenItemTitle = chosenItem.data[0].title
     let chosenItemDescription = chosenItem.data[0].description
 
@@ -162,14 +157,30 @@ function renderGridImages(items) {
 function handleHover(item) {
     // console.log(item)
     renderImageDetails(item)
-    
 }
 
 // Shows the user an error if they try to search for something that is unvailable or has a typo 
 function renderError() {
-    imageError.src = "./images/gotg.gif"
+    imageError.src = "./assets/images/gotg.gif"
+    imageError.style = "display:block"
+    // console.log(imageError.src)
     pError.textContent = `Please check your spelling or try another search query.`
+    mainTitle.textContent = ""
+    mainExplain.textContent = ""
+    grid.style.display = "none"
+    mainSource.textContent = ""
 }
 
+// forces page to start at the very top on reload or refresh
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
+// Opens mainImage pic in a new window on double click
+function swipe() {
+    let openImage = document.querySelector("#main_image")
+    let url=openImage.getAttribute('src');
+    window.open(url,'Image','width=openImage.stylewidth,height=openImage.style.height,resizable=1');
+}
 
 // Don't forget to run: `json-server --watch db.json`
