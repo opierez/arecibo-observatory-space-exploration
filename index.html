@@ -7,55 +7,64 @@
     <title>Arecibo 2.0</title>
 </head>
 
-<header class = "row" id = "header-row">
-  <h1>Arecibo Observatory 2.0</h1>
-</header>
+<body id="outer-boundary">
+  <header class = "row" id = "header-row">
+    <h1>Arecibo Observatory 2.0</h1>
+  </header>
 
-<body id ="content-body">
-  <nav id="planet-list">
-    
-  </nav>
+  <div class="boundary"></div>
 
-  <div class = "row">
-      <div class = "column left">
-          <form id="search-form">
-              <h3 id = "search-title">Search for a space image</h3>
-                  <input type="text" name="search_value" value="" placeholder="Example: Pluto" class="input-text"/>
-              <br/>
-              <br>
-              <input type="submit" name="submit" value="Search" class="submit"/> 
-              <br/>
-          </form>
-
-          <div>
-            <p id="error-message"></p>
-            <img id="error-image" src="">
-          </div>
-
-          <div>
-            <br>
-            <p id="featured-title"></p>
-            <br>
-            <p id="featured-explain" class="scroll"></p>
-            <br>
-            <a id="featured-source" class="scroll" href=""></a>
-          </div>
+  <body id ="content-body">
+    <nav id="planet-list">
       
+    </nav>
 
-         
-      </div>
+    <div class = "row">
+        <div class = "column left">
+            <form id="search-form">
+                <h3 id = "search-title">Search the cosmos</h3>
+                    <input type="text" name="search_value" value="" placeholder="Example: Pluto" class="input-text"/>
+                <br/>
+                <br>
+                <br>
+                <br>
+                <input type="submit" name="submit" value="explore" class="button"/> 
+                <br/>
+            </form>
 
-      <div class = "column right">
+            <div>
+              <p id="error-message"></p>
+              <img id="error-image" src="" style="display:none" width="100%" height="120%">
+            </div>
+
+            <div>
+              <br>
+              <p id="featured-title"></p>
+              <br>
+              <p id="featured-explain" class="scroll"></p>
+              <br>
+              <a id="featured-source" class="scroll" href=""></a>
+            </div>
+        
+
+          
+        </div>
+
+        <div class = "column right">
           <div id="featured_image">
-              <img id="main_image" src="" width="100%" height="120%">
+            <img id="main_image" src="" width="100%" height="120%">
           </div>
           <div id="grid" class="card" style="display:none">
             <!-- this is where grid images will appear -->
-            </div>
           </div>
+        </div>
       </div>
-    </div>
-
-  </div>
+  </body>
 </body>
+<div id=bottom-boundary>
+  <footer id="footer">
+   .
+  </footer>
+</div>
+
 </html>
