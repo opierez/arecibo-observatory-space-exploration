@@ -1,30 +1,29 @@
-# phase-1-project-space-exploration
-
-README:
+# ARECIBO OBSERVATORY 2.0
 
 
-ARECIBO OBSERVATORY 2.0
+App Purpose: Learn about space and highly-specialized astrophotography by browsing our site and searching through NASA's image database!
 
+## Setup
+Fork and clone this repository: https://github.com/opierez/arecibo-observatory-space-exploration 
 
-* App Purpose: Learn about space and highly-specialized astrophotography by browsing our site and searching through NASA's image database!
+Run `json-server --watch db.json`
 
+Open index.html in preferred browser 
 
-App allows users to learn about space through the following methods:
+## The app allows users to learn about space through the following methods:
+1. Click on planet icons in the navBar under the header-title (pulls from db.json, wikipedia)
 
-	1. Click on planet icons in the navBar under the header-title (pulls from db.json, wikipedia)
+2. Scroll down to the mainImage display on page-load view the Astronomy Pic Of the Day (APOD) which is auto-generated every day thanks to NASA's APOD API
 
-	2. Scroll down to the mainImage display on page-load view the Astronomy Pic Of the Day (APOD) which is auto-generated every day thanks to NASA's APOD API
-
-	3. Search in the search bar in the left column to find images of different space phenomena, NASA equipment, and detailed graphs.
+3. Search in the search bar in the left column to find images of different space phenomena, NASA equipment, and detailed graphs.
         
-     A title and description respective to the first image-result will populate in the left below the search.
+A title and description respective to the first image-result will populate in the left below the search.
         
-        * If nothing appears, an error message will appear with suggestions, along with a relevant GIF of Jandro's favorite space-explorer.
+If nothing appears, an error message will appear with suggestions, along with a relevant GIF of Jandro's favorite space-explorer.
 
-     Once the user has successfully submitted a search result, FIVE images will appear below the mainImage, with the first image result from the search filling out the mainImage container.
+Once the user has successfully submitted a search result, FIVE images will appear below the mainImage, with the first image result from the search filling out the mainImage container.
 
-
-Functionality:
+## Functionality:
 
 - Users can view information about the APOD on page-load via API pulling from NASA's APOD.
     api: (`https://api.nasa.gov/planetary/apod?api_key=XjBC4L80dCM7UOyBSupD3sYfCDTWcuAN5LIeb1dv`)
@@ -42,8 +41,25 @@ Functionality:
     api: (`db.json`) - array `observatories`
     * The observatory's telescope was decommissioned in 2020, so this application is meant to be a spiritual successor where users can observe space from the comfort of their homes.
 
+## Preview
 
-Further information:
+## Header
+![Header](/readme-images/Header.png)
+
+## Astronomy Picture of the Day
+![APOD](/readme-images/APOD.png)
+
+## View Search Images
+![View-Search-Images](/readme-images/ImageExperience.png)
+
+## Search and Description Details 
+![Search-And-Description](/readme-images/SearchDescription.png)
+
+## Invalid Search Term Experience
+![Invalid-Search](/readme-images/InvalidSearch.png)
+
+
+## Further information:
 
 ~ The images and data on the site were either pulled from NASA's APIs, or from Wikipedia then placed in the db.json.
 
@@ -74,8 +90,18 @@ Further information:
      - link: (`https://stackoverflow.com/questions/3664381/force-page-scroll-position-to-top-at-page-refresh-in-html`)
         user: (`https://stackoverflow.com/users/1618202/profnandaa`)
     
-Other notes/credits:
+## Other notes/credits:
     * APIs owned by NASA: (`https://api.nasa.gov/`)
     * `db.json` information sourced directly from Wikipedia: (`https://www.wikipedia.org`)
     * `favicon.ico` image sourced originally from NAIC website (`https://www.naic.edu/ao/landing`)
     * `Guardians of the Galaxy` gif-clip owned by Marvel + Disney: (`https://www.marvel.com/movies/guardians-of-the-galaxy`)
+
+## Team
+
+**Olivia Perez**
+
+- [Profile](https://github.com/opierez)
+
+**Alexander Spagnoli**
+
+- [Profile](https://github.com/coolcoolcoolyo)
